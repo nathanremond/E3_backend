@@ -38,8 +38,38 @@ MONGO_DBNAME= nom de la DB de dev
 
 PORT=3000
 
+### Génération de la clé JWT
+
+L’API utilise une clé secrète pour signer les tokens JWT.
+Vous devez créer une clé et la placer dans le fichier .env.
+
+Exemple: JWT_SECRET=votre_cle_secrete
+
 ## Routes principales
 
 - /trainings
 - /sessions
 - /registrations
+
+## Sécurité
+
+- authMiddleware: Middleware qui gère la connexion d'un utilisateur avec un token.
+- roleMiddleware: Middleware qui vérifie si un utilisateur possède le rôle requis pour certaines routes.
+- Hashage des mots de passes des utilisateurs lors de leur création avec bcrypt.
+- Ajout de CORS pour que les requêtes fonctionnent sur http://localhost:5173.
+- Ajout d'un rate limiter pour éviter une surcharge de requêtes (max 100 toutes les 15 minutes).
+- Validation des données avec Joi.
+
+## Documentation
+
+Documentation Swagger disponible:
+
+- `http://localhost:3000/docs`
+
+## Tests
+
+Lancer les tests jest / supertest:
+
+- `npm run test`
+
+Une collection postman se trouve dans le dossier exports.

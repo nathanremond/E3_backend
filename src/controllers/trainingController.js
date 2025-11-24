@@ -1,5 +1,27 @@
 import Training from "../models/training.model.js";
 import Detail from "../models/detail.model.js"
+import Joi from "joi";
+
+const trainingSchema = Joi.object({
+    title: Joi.string().min(3).max(200).required(),
+    category: Joi.string().min(3).max(100).required(),
+    description: Joi.string().min(10).required()
+});
+
+const detailSchema = Joi.object({
+    modules: Joi.array().items(
+        Joi.object({
+            title: Joi.string().min(3).required(),
+            duration: Joi.number().integer().min(1).required()
+        })
+    ).min(1).required(),
+
+    material_needed: Joi.array().items(
+        Joi.string().min(1)
+    ).required(),
+
+    level: Joi.string().valid("débutant", "intermédiaire", "avancé").required()
+});
 
 class TrainingController {
     static async listTraining(req, res) {
@@ -29,6 +51,9 @@ class TrainingController {
 
     static async createTraining(req, res) {
         try {
+            const { error } = trainingSchema.validate(req.body);
+            if (error) return res.status(400).json({ error: error.details[0].message });
+
             const { title, category, description } = req.body;
             const newTraining = await Training.create(title, category, description);
             return res.status(201).json(newTraining);
@@ -43,6 +68,9 @@ class TrainingController {
 
             const training = await Training.getbyid(id);
             if (!training) return res.status(404).json({ error: "training non trouvé" });
+
+            const { error } = detailSchema.validate(req.body);
+            if (error) return res.status(400).json({ error: error.details[0].message });
 
             const detailData = {
                 ...req.body,
@@ -59,6 +87,9 @@ class TrainingController {
 
     static async updateTraining(req, res) {
         try {
+            const { error } = trainingSchema.validate(req.body);
+            if (error) return res.status(400).json({ error: error.details[0].message });
+
             const { id } = req.params;
             const { title, category, description } = req.body;
             const updatedTraining = await Training.update(Number(id), { title, category, description });
@@ -77,6 +108,9 @@ class TrainingController {
 
             const training = await Training.getbyid(id);
             if (!training) return res.status(404).json({ error: "training non trouvé" });
+
+            const { error } = detailSchema.validate(req.body);
+            if (error) return res.status(400).json({ error: error.details[0].message });
 
             const updatedData = { ...req.body, training_id: id };
 

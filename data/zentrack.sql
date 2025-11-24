@@ -2,6 +2,14 @@ DROP TABLE IF EXISTS registrations;
 DROP TABLE IF EXISTS sessions;
 DROP TABLE IF EXISTS trainings;
 DROP TABLE IF EXISTS companies;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users(
+   id SERIAL PRIMARY KEY,
+   username VARCHAR(100) NOT NULL,
+   password VARCHAR(200) NOT NULL,
+   role VARCHAR(50) NOT NULL
+);
 
 CREATE TABLE companies(
    id SERIAL PRIMARY KEY,

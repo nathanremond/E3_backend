@@ -92,11 +92,11 @@
 				{
 					"name": "/trainings/{id}/details",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 30\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 40\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"moyen\"\r\n}",
+							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 20\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 10\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"débutant\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,11 +122,11 @@
 				{
 					"name": "/trainings/{id}/details",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 20\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 10\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"débutant\"\r\n}",
+							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 30\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 40\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"moyen\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -259,7 +259,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"date\": \"2025-11-24\",\r\n    \"time\": \"12:00:00\",\r\n    \"duration\": 20,\r\n    \"trainer_name\": \"Pedro\",\r\n    \"max_participants\": 20,\r\n    \"training_id\": 2\r\n}",
+							"raw": "{\r\n    \"date\": \"2025-11-24\",\r\n    \"time\": \"12:00:00\",\r\n    \"duration\": 20,\r\n    \"trainer_name\": \"Pedro\",\r\n    \"max_participants\": 20,\r\n    \"training_id\": 2,\r\n    \"company_id\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -403,6 +403,103 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"psdUser1\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"password\": \"psdUser1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token_zenTrack}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
