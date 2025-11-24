@@ -1,0 +1,10 @@
+1. La sauvegarde complète signifie qu'une base de données à été intégralement copié. La sauvegarde incrémentielle signifie que seules les modifications apportées à la base de données après la dernière sauvegarde vont être sauvegardées.*
+
+
+2. Une bonne stratégie serait d'utiliser les deux types de sauvegardes. L'incrémentielle chaque jour pour avoir peu d'impact sur les performances et une complète une fois par semaine pour avoir une sauvegarde stable.
+
+
+3. Une commande de sauvegarde pour une base PostgreSQL est: pg_dump nom_de_la_base > fichier_sauvegarde.sql.
+
+
+4. Pour permettre une récupération rapide après un incident, il est d'abord possible de combiner sauvegardes complètes et incrémentielles. Il est aussi possible de préparer des procédures de restaurations. Enfin, il faut aussi stocker les sauvegardes sur un support externe et sécurisé.
