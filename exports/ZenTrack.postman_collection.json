@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "0d37f491-3841-48fd-824f-cc86d4eef358",
+		"name": "ZenTrack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41846103"
+	},
+	"item": [
+		{
+			"name": "Trainings",
+			"item": [
+				{
+					"name": "/trainings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/trainings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings/{id}/details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings/2/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings",
+								"2",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Formation Node.js avancée\",\r\n  \"category\": \"Technologie\",\r\n  \"description\": \"Une formation complète couvrant les APIs REST, Express, PostgreSQL et les bonnes pratiques.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings/{id}/details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 30\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 40\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"moyen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings/2/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings",
+								"2",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings/{id}/details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"modules\": [\r\n        {\r\n            \"title\": \"Introduction au javascript\",\r\n            \"duration\": 20\r\n        },\r\n        {\r\n            \"title\": \"Exercices de javascript\",\r\n            \"duration\": 10\r\n        }\r\n    ],\r\n    \"material_needed\": [\r\n        \"pc\",\r\n        \"souris\"\r\n    ],\r\n    \"level\": \"débutant\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings/2/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings",
+								"2",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Formation Node.js avancée\",\r\n  \"category\": \"Développement Web\",\r\n  \"description\": \"Une formation complète couvrant les APIs REST, Express, PostgreSQL, MongoBD et les bonnes pratiques.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trainings/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Formation Node.js avancée\",\r\n  \"category\": \"Développement Web\",\r\n  \"description\": \"Une formation complète couvrant les APIs REST, Express, PostgreSQL, MongoBD et les bonnes pratiques.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/trainings/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"trainings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "/sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/{id}/registrations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/sessions/1/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"1",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-11-24\",\r\n    \"time\": \"12:00:00\",\r\n    \"duration\": 20,\r\n    \"trainer_name\": \"Pedro\",\r\n    \"max_participants\": 20,\r\n    \"training_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/{id}/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"pedru\",\r\n    \"lastname\": \"pedrito\",\r\n    \"email\": \"test@email.com\",\r\n    \"status\": \"registered\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/sessions/1/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-11-24\",\r\n    \"time\": \"12:00:00\",\r\n    \"duration\": 30,\r\n    \"trainer_name\": \"Pedro\",\r\n    \"max_participants\": 25,\r\n    \"training_id\": 2,\r\n    \"company_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/sessions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sessions/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Formation Node.js avancée\",\r\n  \"category\": \"Développement Web\",\r\n  \"description\": \"Une formation complète couvrant les APIs REST, Express, PostgreSQL, MongoBD et les bonnes pratiques.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/sessions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "/registrations/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"pedrita\",\r\n    \"lastname\": \"pedrito\",\r\n    \"email\": \"test@email.com\",\r\n    \"status\": \"registered\",\r\n    \"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/registrations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"registrations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
